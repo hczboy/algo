@@ -13,7 +13,7 @@ public class InsertSort extends AbstractSort {
 		for (int i = 1; i < a.length; i++) {
 			int t = a[i];
 			int j = i;
-			while (j - 1 >= 0 && a[j - 1] > a[j]) {
+			while (j - 1 >= 0 && a[j - 1] > t) {
 				a[j] = a[j - 1];
 				j--;
 			}
@@ -23,7 +23,7 @@ public class InsertSort extends AbstractSort {
 	}
 
 	public static void main(String[] args) {
-		int a[] = { 25, 1, 8, 11 };
+		int a[] = { 25, 1, 3, 7, 2 };
 		InsertSort sort = new InsertSort(a);
 		System.out.println(sort);
 		sort.sort();
