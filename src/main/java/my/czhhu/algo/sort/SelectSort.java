@@ -8,8 +8,8 @@ public class SelectSort extends AbstractSort {
 	}
 
 	public static void main(String[] args) {
-		int a[] = { 25, 1, 8, 11 };
-		InsertSort sort = new InsertSort(a);
+		int a[] = { 25, 1, 3, 7, 2 };
+		SelectSort sort = new SelectSort(a);
 		System.out.println(sort);
 		sort.sort();
 		System.out.println(sort);
