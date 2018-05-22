@@ -1,16 +1,12 @@
 package my.czhhu.algo.sort;
 
-import java.util.Arrays;
-
-public class InsertSort {
-
-	private int a[];
+public class InsertSort extends AbstractSort {
 
 	public InsertSort(int[] sa) {
-		this.a = sa;
+		super(sa);
 	}
 
-	private void sort() {
+	public void sort() {
 		if (a.length <= 1) {
 			return;
 		}
@@ -24,11 +20,6 @@ public class InsertSort {
 			a[j] = t;
 		}
 
-	}
-
-	@Override
-	public String toString() {
-		return "InsertSort [a=" + Arrays.toString(a) + "]";
 	}
 
 	public static void main(String[] args) {
