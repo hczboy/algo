@@ -11,7 +11,7 @@ public class InsertSort {
 	}
 
 	private void sort() {
-		if (a.length == 1) {
+		if (a.length <= 1) {
 			return;
 		}
 		for (int i = 1; i < a.length; i++) {
