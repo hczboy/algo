@@ -12,14 +12,18 @@ public class BubbleSort extends AbstractSort {
 		if (a.length <= 1)
 			return;
 		int t;
+		boolean isSwap = false;
 		for (int i = a.length - 1; i > 0; i--) {
 			for (int j = 0; j < i; j++) {
 				if (a[j] > a[j + 1]) {
 					t = a[j];
 					a[j] = a[j + 1];
 					a[j + 1] = t;
+					isSwap = true;
 				}
 			}
+			if (!isSwap)
+				break;
 		}
 
 	}
