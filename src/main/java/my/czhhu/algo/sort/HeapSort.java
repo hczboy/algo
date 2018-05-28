@@ -10,7 +10,7 @@ public class HeapSort extends AbstractSort {
 	public static void main(String[] args) {
 		int a[] = { 25, 1, 3, 7, 2, 9 };
 		// int a[] = { 2, 1 };
-		HeapSort sort = new HeapSort(a);
+		AbstractSort sort = new HeapSort(a);
 		System.out.println(sort);
 		sort.sort();
 		System.out.println(sort);
@@ -26,13 +26,6 @@ public class HeapSort extends AbstractSort {
 			// heapfy(a, 0, l);
 			heapfyNoRur(a, 0, l);
 		}
-
-	}
-
-	private void swap(int[] a, int i, int j) {
-		int t = a[i];
-		a[i] = a[j];
-		a[j] = t;
 
 	}
 

@@ -16,4 +16,12 @@ public abstract class AbstractSort {
 		return "[a=" + Arrays.toString(a) + "]";
 	}
 
+    protected void swap(int[] a, int i, int j)
+    {
+    	int t = a[i];
+    	a[i] = a[j];
+    	a[j] = t;
+    
+    }
+
 }
