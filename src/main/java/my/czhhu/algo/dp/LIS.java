@@ -3,6 +3,7 @@ package my.czhhu.algo.dp;
 /*
  * 
  * LIS: longest increasing subsequence
+ *  LIS of {1 9 10 5 11 2 13} is {1 9 10 11 13}
  * */
 public class LIS
 {
