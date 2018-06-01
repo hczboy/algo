@@ -46,7 +46,7 @@ public class GoldMine
     }
 
     /*
-     * 
+     * To reduce space complexity to O(workers)
      * Note that d[i][j] = max{d[i-1][j], d[i-1][j-workers[i-1] +golds[i-1]]}
      * that means it can reduce 1-dimension to d[workers] and d[workers] can be re-used between mines
      * */
