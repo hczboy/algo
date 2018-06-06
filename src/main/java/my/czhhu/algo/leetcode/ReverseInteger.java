@@ -6,6 +6,7 @@ public class ReverseInteger
     /*
      * 321 => 123
      * -321 =>-123
+     * 10=>1
      *  1000000003 => overflow, return 0;
      * */
     public static int doReverse(int i)
