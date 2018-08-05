@@ -2,45 +2,6 @@ package my.czhhu.algo.linklist;
 
 public class HuiwenLinkList
 {
-    static Node findMidNode(Node head)
-    {
-        if (head == null)
-        {
-            return head;
-        }
-
-        Node slow;
-        Node fast = slow = head;
-        while (fast.getNext() != null && fast.getNext().getNext() != null)
-        {
-            slow = fast.getNext();
-            fast = fast.getNext().getNext();
-        }
-        return slow;
-    }
-
-    static Node reverseLinkedList(Node head)
-    {
-        if (head == null || head.getNext() == null)
-            return head;
-        return rld(head, head.getNext());
-    }
-
-    static private Node rld(Node cur, Node n)
-    {
-        if (n.getNext() == null)
-        {
-            n.setNext(cur);
-            return n;
-        }
-        Node tmp = n.getNext();
-        n.setNext(cur);
-        cur = n;
-        n = tmp;
-        return rld(cur, n);
-
-    }
-
     static boolean isHuiwen(Node head)
     {
         if (head == null || head.getNext() == null)
@@ -48,11 +9,11 @@ public class HuiwenLinkList
             return true;
         }
 
-        Node mid = findMidNode(head);
+        Node mid = CommonOp.findMidNode(head);
 
         Node nextStart = mid.getNext();
         mid.setNext(null);
-        Node reverseHead = reverseLinkedList(nextStart);
+        Node reverseHead = CommonOp.reverseLinkedList(nextStart);
         Node p = head, q = reverseHead;
 
         while (p != null && q != null)
@@ -64,11 +25,11 @@ public class HuiwenLinkList
             }
             else
             {
-                mid.setNext(reverseLinkedList(reverseHead));
+                mid.setNext(CommonOp.reverseLinkedList(reverseHead));
                 return false;
             }
         }
-        mid.setNext(reverseLinkedList(reverseHead));
+        mid.setNext(CommonOp.reverseLinkedList(reverseHead));
         return true;
 
     }
@@ -84,10 +45,10 @@ public class HuiwenLinkList
         System.out.println(isHuiwen(one));
         System.out.println(isHuiwen(two));
         System.out.println(isHuiwen(three));
-        System.out.println(reverseLinkedList(empty));
-        System.out.println(reverseLinkedList(one).getData());
-        System.out.println(reverseLinkedList(two).getData());
-        System.out.println(reverseLinkedList(three).getData());
+        System.out.println(CommonOp.reverseLinkedList(empty));
+        System.out.println(CommonOp.reverseLinkedList(one).getData());
+        System.out.println(CommonOp.reverseLinkedList(two).getData());
+        System.out.println(CommonOp.reverseLinkedList(three).getData());
     }
 
 }
