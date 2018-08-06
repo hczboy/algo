@@ -1,6 +1,6 @@
 package my.czhhu.algo.leetcode;
 
-public class ReverseInteger
+public class ReverseInteger7
 {
 
     /*
@@ -32,6 +32,8 @@ public class ReverseInteger
     {
         System.out.println(doReverse(123));
         System.out.println(doReverse(-1000000002));
+        System.out.println(Integer.MAX_VALUE);
+        System.out.println(Integer.MIN_VALUE);
     }
 
 }
