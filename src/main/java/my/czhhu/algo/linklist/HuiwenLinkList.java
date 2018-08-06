@@ -1,5 +1,8 @@
 package my.czhhu.algo.linklist;
 
+import my.czhhu.algo.common.CommonOp;
+import my.czhhu.algo.common.Node;
+
 public class HuiwenLinkList
 {
     static boolean isHuiwen(Node head)

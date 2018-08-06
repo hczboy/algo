@@ -1,4 +1,4 @@
-package my.czhhu.algo.linklist;
+package my.czhhu.algo.common;
 
 public class Node
 {
@@ -20,6 +20,11 @@ public class Node
         super();
         this.data = data;
         this.next = next;
+    }
+
+    public Node(int i)
+    {
+        this.data = i;
     }
 
     public void setData(int data)
