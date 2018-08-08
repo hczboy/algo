@@ -1,6 +1,6 @@
 package my.czhhu.algo.leetcode;
 
-public class LongestCommonPrefix
+public class LongestCommonPrefix14
 {
 
     public static String solution(String[] input)
