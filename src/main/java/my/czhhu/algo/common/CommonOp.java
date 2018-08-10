@@ -54,4 +54,17 @@ public class CommonOp
 
     }
 
+    static public int length(Node n)
+    {
+        if (n == null)
+            return -1;
+        int res = 0;
+        while (n != null)
+        {
+            res++;
+            n = n.getNext();
+        }
+        return res;
+    }
+
 }
