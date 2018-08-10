@@ -5,6 +5,25 @@ import my.czhhu.algo.common.Node;
 
 public class HuiwenLinkList
 {
+    static class Result
+    {
+        Node node;
+        boolean rb;
+
+        public Result(Node node, boolean rb)
+        {
+            super();
+            this.node = node;
+            this.rb = rb;
+        }
+
+        public Result()
+        {
+            super();
+        }
+
+    }
+
     static boolean isHuiwen(Node head)
     {
         if (head == null || head.getNext() == null)
@@ -37,6 +56,38 @@ public class HuiwenLinkList
 
     }
 
+    static boolean isHuiwenRecursive(Node head)
+    {
+        if (head == null || head.getNext() == null)
+            return true;
+
+        int length = CommonOp.length(head);
+        Result r = isHuiwenRecur(head, length);
+        return r.rb;
+    }
+
+    private static Result isHuiwenRecur(Node head, int length)
+    {
+        if (length == 1)
+        {
+            return new Result(head.getNext(), true);
+        }
+        if (length == 0)
+        {
+            return new Result(head, true);
+        }
+
+        Result rightRes = isHuiwenRecur(head.getNext(), length - 2);
+        Result cur = new Result(rightRes.node.getNext(), false);
+
+        if (head.getData() == rightRes.node.getData())
+        {
+            cur.rb = true;
+
+        }
+        return cur;
+    }
+
     public static void main(String[] args)
     {
         Node empty = null;
@@ -48,6 +99,13 @@ public class HuiwenLinkList
         System.out.println(isHuiwen(one));
         System.out.println(isHuiwen(two));
         System.out.println(isHuiwen(three));
+        System.out.println("=======================");
+        System.out.println(isHuiwenRecursive(empty));
+        System.out.println(isHuiwenRecursive(one));
+        System.out.println(isHuiwenRecursive(two));
+        System.out.println(isHuiwenRecursive(three));
+
+        System.out.println("==============================");
         System.out.println(CommonOp.reverseLinkedList(empty));
         System.out.println(CommonOp.reverseLinkedList(one).getData());
         System.out.println(CommonOp.reverseLinkedList(two).getData());
