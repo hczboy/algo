@@ -66,7 +66,7 @@ public class LIS
     {
         // int a[] = { 5, 3, 4, 8, 6, 7 };
         //int a[] = { 1, 9, 10, 5, 11, 2, 13 };
-        int a[] = { 1, 9, 10, 10, 11, 2, 13 };
+        int a[] = { 11, 9, 10, 10, 11, 2, 13 };
         System.out.println(findLenOfLIS(a));
 
     }
