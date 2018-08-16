@@ -8,7 +8,7 @@ import java.util.Arrays;
  * if not found, return (-1, -1);
  * 
  * */
-public class SearchRange {
+public class SearchRange34 {
 
 	static int[] search(int[] a, int target) {
 		int[] res = { -1, -1 };
