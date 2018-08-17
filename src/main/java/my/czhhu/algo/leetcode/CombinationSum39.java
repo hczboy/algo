@@ -40,8 +40,8 @@ public class CombinationSum39
             return;
         if (sum == target && i <= a.length)
         {
-            LinkedList<Integer> clone = (LinkedList<Integer>) r.clone();
-            res.add(clone);
+
+            res.add(new ArrayList<>(r));
             return;
         }
         if (i == a.length)
@@ -68,6 +68,11 @@ public class CombinationSum39
         }
         if (sum < target)
         {
+
+            while (a[i] == a[i + 1])
+            {
+                i++;
+            }
             cs(a, r, i + 1, res, target);
         }
     }
@@ -86,7 +91,7 @@ public class CombinationSum39
 
     public static void main(String[] args)
     {
-        int a[] = { 2, 3, 5, 7 };
+        int a[] = { 2, 2, 3, 5, 7 };
 
         List<List<Integer>> res = cs(a, 7);
         for (List<Integer> r : res)
