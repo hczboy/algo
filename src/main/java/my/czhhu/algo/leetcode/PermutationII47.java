@@ -16,60 +16,49 @@ For example, [1,1,2] have the following unique permutations:
 [2,1,1]
 ]
  * */
-public class PermutationII47
-{
+public class PermutationII47 {
 
-    static List<String> permu(String s)
-    {
-        if (s == null || s.length() == 0)
-            return Collections.EMPTY_LIST;
+	static List<String> permu(String s) {
+		if (s == null || s.length() == 0)
+			return Collections.EMPTY_LIST;
 
-        Map<Character, Integer> map = new HashMap<>();
-        for (char c : s.toCharArray())
-        {
-            if (map.containsKey(c))
-            {
-                map.put(c, map.get(c).intValue() + 1);
-            }
-            else
-            {
-                map.put(c, Integer.valueOf(1));
-            }
+		Map<Character, Integer> map = new HashMap<>();
+		for (char c : s.toCharArray()) {
+			if (map.containsKey(c)) {
+				map.put(c, map.get(c).intValue() + 1);
+			} else {
+				map.put(c, Integer.valueOf(1));
+			}
 
-        }
-        List<String> res = new ArrayList<>();
+		}
+		List<String> res = new ArrayList<>();
 
-        permu(map, "", 0, res, s.length());
-        return res;
-    }
+		permu(map, "", 0, res, s.length());
+		return res;
+	}
 
-    private static void permu(Map<Character, Integer> map, String prefix, int start, List<String> res, int len)
-    {
-        if (start == len)
-        {
-            res.add(prefix);
-            return;
-        }
+	private static void permu(Map<Character, Integer> map, String prefix, int start, List<String> res, int len) {
+		if (start == len) {
+			res.add(prefix);
+			return;
+		}
 
-        for (Character c : map.keySet())
-        {
-            if (map.get(c) > 0)
-            {
-                prefix += c;
-                map.put(c, map.get(c).intValue() - 1);
-                permu(map, prefix, start + 1, res, len);
-                prefix = prefix.substring(0, prefix.length() - 1);
-                map.put(c, map.get(c).intValue() + 1);
-            }
-        }
+		for (Character c : map.keySet()) {
+			if (map.get(c) > 0) {
 
-    }
+				map.put(c, map.get(c).intValue() - 1);
+				permu(map, prefix + c, start + 1, res, len);
 
-    public static void main(String[] args)
-    {
-        String s = "112";
+				map.put(c, map.get(c).intValue() + 1);
+			}
+		}
 
-        System.out.println(permu(s));
-    }
+	}
+
+	public static void main(String[] args) {
+		String s = "112";
+
+		System.out.println(permu(s));
+	}
 
 }
