@@ -90,11 +90,51 @@ public class CombinationSum39
 
     }
 
+    static List<List<Integer>> csBetter(int a[], int target)
+    {
+
+        List<List<Integer>> res = new ArrayList<>();
+
+        if (a == null || a.length == 0)
+            return res;
+        Arrays.sort(a);
+
+        LinkedList<Integer> r = new LinkedList<>();
+        csBetter(a, 0, r, 0, res, target);
+        return res;
+
+    }
+
+    private static void csBetter(int[] a, int start, LinkedList<Integer> r, int sum, List<List<Integer>> res,
+            int target)
+    {
+
+        if (sum == target)
+        {
+            res.add(new ArrayList<>(r));
+            return;
+        }
+        for (int i = start; i < a.length; i++)
+        {
+            if (i > start && a[i] == a[i - 1])
+                continue;
+
+            if (a[i] + sum > target)
+                break;
+
+            r.add(a[i]);
+            csBetter(a, i, r, sum + a[i], res, target);
+            r.removeLast();
+
+        }
+
+    }
+
     public static void main(String[] args)
     {
         int a[] = { 2, 2, 3, 5, 7 };
 
-        List<List<Integer>> res = cs(a, 7);
+        List<List<Integer>> res = csBetter(a, 7);
         for (List<Integer> r : res)
         {
             System.out.println(r);
