@@ -57,6 +57,11 @@ public class CombinationSum39
             sum += cur;
             r.add(cur);
             j++;
+            while (i + 1 < a.length && cur == a[i + 1])
+            {
+                i++;
+            }
+
             cs(a, r, i + 1, res, target);
 
         }
@@ -69,10 +74,6 @@ public class CombinationSum39
         if (sum < target)
         {
 
-            while (a[i] == a[i + 1])
-            {
-                i++;
-            }
             cs(a, r, i + 1, res, target);
         }
     }
