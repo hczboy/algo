@@ -1,6 +1,6 @@
 package my.czhhu.algo.leetcode;
 
-public class WordSearch
+public class WordSearch79
 {
 
     static boolean search(char[][] grid, String w)
