@@ -64,11 +64,35 @@ public class ReverseK {
 		 */
 	}
 
+	static Node rkIter(Node head, int k) {
+		if (head == null)
+			return null;
+
+		Node p = head, q = p;
+
+		while (q != null && k > 0) {
+			q = q.next;
+			k--;
+		}
+		if (k != 0)
+			return null;
+		while (q != null) {
+			p = p.next;
+			q = q.next;
+		}
+
+		return p;
+
+	}
+
 	public static void main(String[] args) {
 		Node h = new Node(1, new Node(2, new Node(3, new Node(4))));
+
 		System.out.println(reverseK(h, 3).getData());
 
 		System.out.println(rk(h, 4).getData());
+
+		System.out.println(rkIter(h, 5).getData());
 	}
 
 }
