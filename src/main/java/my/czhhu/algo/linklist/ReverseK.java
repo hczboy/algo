@@ -42,32 +42,33 @@ public class ReverseK {
 	}
 
 	private static Node rk(Node p, AtomicInteger count, int k) {
-		if (p.next == null) {
-			count.incrementAndGet();
-			if (k == count.get()) {
-				return p;
-			} else {
-				return null;
-			}
-
-		}
-
-		Node r = rk(p.next, count, k);
-		if (r != null)
-			return r;
-		if (count.get() + 1 == k) {
-			return p;
-		} else {
-			count.incrementAndGet();
+		if (p == null)
 			return null;
+		Node r = rk(p.next, count, k);
+
+		count.incrementAndGet();
+
+		if (count.get() == k) {
+			return p;
 		}
+		return r;
+
+		/*
+		 * if (p.next == null) { count.incrementAndGet(); if (k == count.get()) { return
+		 * p; } else { return null; }
+		 * 
+		 * }
+		 * 
+		 * Node r = rk(p.next, count, k); if (r != null) return r; if (count.get() + 1
+		 * == k) { return p; } else { count.incrementAndGet(); return null; }
+		 */
 	}
 
 	public static void main(String[] args) {
 		Node h = new Node(1, new Node(2, new Node(3, new Node(4))));
 		System.out.println(reverseK(h, 3).getData());
 
-		System.out.println(rk(h, 5).getData());
+		System.out.println(rk(h, 4).getData());
 	}
 
 }
