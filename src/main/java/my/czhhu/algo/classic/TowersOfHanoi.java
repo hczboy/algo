@@ -11,9 +11,21 @@ public class TowersOfHanoi {
 		run(n - 1, auxpeg, topeg, frompeg);
 	}
 
+	/*
+	 * static void printStack(Stack<Integer> s, StringBuilder sb) { if (s.isEmpty())
+	 * { return; } int a = s.pop(); printStack(s, sb); sb.append(a);
+	 * 
+	 * }
+	 */
+
 	public static void main(String[] args) {
 		run(3, '1', '2', '3');
-
+		/*
+		 * Stack<Integer> s = new Stack<Integer>(); s.push(1); s.push(2); s.push(3);
+		 * StringBuilder sb = new StringBuilder();
+		 * 
+		 * printStack(s, sb); System.out.println(sb.toString());
+		 */
 	}
 
 }
