@@ -42,8 +42,13 @@ public class RestoreIPAddress93 {
 		for (int j = i + 1; j <= s.length() && j <= i + 3; j++) {
 			String p = s.substring(i, j);
 			if (p.length() == 3) {
-				int pi = Integer.valueOf(p);
+				int pi = Integer.valueOf(p); // if one part is >255, continue
 				if (pi > 255) {
+					continue;
+				}
+			}
+			if (p.length() == 2 || p.length() == 3) {
+				if (p.startsWith("0")) { // if meet 0x or 0xx, contiune
 					continue;
 				}
 			}
@@ -56,7 +61,7 @@ public class RestoreIPAddress93 {
 
 	public static void main(String[] args) {
 		// String s = "25525511135";
-		String s = "1111";
+		String s = "10011";
 
 		System.out.println(restore(s));
 
