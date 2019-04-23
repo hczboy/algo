@@ -22,12 +22,11 @@ public class RemoveDupFromRotatedList {
 		// dummy.next = head;
 
 		Node h = head;
-		while (h.data == t && h.next != head) {
+		while (h.data == t) {
+			if (h.next == head)
+				return null;
 			h = h.next;
 		}
-
-		if (h.next == head)
-			return null;
 
 		head = h;
 
@@ -61,7 +60,9 @@ public class RemoveDupFromRotatedList {
 		CommonOp.printRotateLinkedList(removeDups(head, 2));
 		CommonOp.printRotateLinkedList(removeDups(h1, 2));
 		CommonOp.printRotateLinkedList(removeDups(h2, 2));
-
+		Node f = new Node(2, null);
+		f.setNext(f);
+		CommonOp.printRotateLinkedList(removeDups(f, 1));
 	}
 
 }
